@@ -14,7 +14,7 @@ const Header = () => (
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-            <div className="log-wrapper" css={{ padding: '11px 0' }}>
+            <div className="logo-wrapper" css={{ padding: '11px 0' }}>
               <a href="/">
                 <Logo height='28px' width='95px' />
               </a>

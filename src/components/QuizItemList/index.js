@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { ProgressBar, Button } from 'react-bootstrap';
 import styled from '@emotion/styled/macro';
 import { EmptyQuiz } from '../Quiz';
-import { getAllQuizItems, getAllQuizOptions } from '../../lib/firebaseDb';
+import { getAllQuizItems } from '../../lib/firebaseDb';
 import QuizItem from '../QuizItem';
 import QuizFinished from '../QuizFinished';
 
@@ -47,24 +47,16 @@ export default class extends Component {
     })
   }
 
-  getOptionsSnapshots = async (quizItemSnapshot, quizId) => {
-    const optionsSnapshots = []
-    await quizItemSnapshot.forEach(data => {
-      getAllQuizOptions(quizId, data.id)
-      .then((snapshot) => {
-        optionsSnapshots.push(snapshot)
-      })
-    })
-    return optionsSnapshots
-  }
-
-  handleChooseAnser(slug, e) {
-    let { answers, step } = this.state;
-    answers[step] = slug
-    this.setState({
-      answers
-    })
-  }
+  // getOptionsSnapshots = async (quizItemSnapshot, quizId) => {
+  //   const optionsSnapshots = []
+  //   await quizItemSnapshot.forEach(data => {
+  //     getAllQuizOptions(quizId, data.id)
+  //     .then((snapshot) => {
+  //       optionsSnapshots.push(snapshot)
+  //     })
+  //   })
+  //   return optionsSnapshots
+  // }
 
   stepBack = (e) => {
     e.preventDefault();

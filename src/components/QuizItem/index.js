@@ -27,11 +27,11 @@ export default class extends Component {
     loading: true,
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     this.loadDataAndSet();
   }
 
-  async componentDidUpdate(prevProps, prevState) {
+  async componentDidUpdate(prevProps) {
     const { itemId } = this.props;
     if (prevProps.itemId !== itemId) {
       this.setState({
@@ -65,7 +65,6 @@ export default class extends Component {
         <QuizOption 
           key={`option-${option.id}`}
           selectOption={selectOption}
-          itemId={option.id}
           item={data} 
           selected={selected} />
       );
